@@ -9,25 +9,8 @@ const app = express();
 // Base de datos
 dbConnection();
 
-//Definir dominios para recibir las peticiones
-const whitelist = [
-  'http://localhost:3000',
-  'https://javierpazz.github.io/calendarfront',
-];
-const corsOptions = {
-  origin: (origin, callback) => {
-    // Recisar si la peticion viene de un servidor que esta en la whitelist
-    const existe = whitelist.some((dominio) => dominio === origin);
-    if (existe) {
-      callback(null, true);
-    } else {
-      callback(new Error('No permitido por Cors'));
-    }
-  },
-};
-
 // CORS
-app.use(cors(corsOptions));
+app.use(cors());
 
 // Directorio Público
 app.use(express.static('public'));
