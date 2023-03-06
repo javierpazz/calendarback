@@ -10,7 +10,10 @@ const app = express();
 dbConnection();
 
 //Definir dominios para recibir las peticiones
-const whitelist = ['http://localhost:3000',' https://javierpazz.github.io/calendarfront'];
+const whitelist = [
+  'http://localhost:3000',
+  'https://javierpazz.github.io/calendarfront',
+];
 const corsOptions = {
   origin: (origin, callback) => {
     // Recisar si la peticion viene de un servidor que esta en la whitelist
